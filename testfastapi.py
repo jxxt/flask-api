@@ -17,9 +17,10 @@ async def query(q: str):
     model = genai.GenerativeModel("gemini-1.5-flash")
 
     response = model.generate_content(q)
+    responseText = response.text.rstrip('\n')
     # print("\n\n",response.text,"\n")
     
-    return {"message": response.text}
+    return {"message": responseText}
 
 
 
